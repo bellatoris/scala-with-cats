@@ -10,7 +10,8 @@ lazy val root = (project in file(".")).
     name := "Hello",
     libraryDependencies ++= Seq(
       scalaTest % Test,
-      "org.typelevel" %% "cats-core" % "1.4.0"
+      "org.typelevel" %% "cats-core" % "1.4.0",
+      "org.scala-lang" % "scala-reflect" % scalaVersion.value
     ),
     scalacOptions ++= Seq(
       "-encoding", "UTF-8",   // source files are in UTF-8
@@ -19,7 +20,7 @@ lazy val root = (project in file(".")).
       "-feature",             // warn about misused language features
       "-language:higherKinds",// allow higher kinded types without `import scala.language.higherKinds`
       "-Xlint",               // enable handy linter warnings
-      /* "-Xfatal-warnings",     // turn compiler warnings into errors */
+      "-Xfatal-warnings",     // turn compiler warnings into errors
       "-Ypartial-unification" // allow the compiler to unify type constructors of different arities
     )
   )
